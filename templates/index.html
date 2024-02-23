@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO APP</title>
+    <link rel="stylesheet" href="../statics/styles.css">
+
+</head>
+<body style="background-color:sky blue; text-align:justify " >
+
+
+ <div class="header">
+
+<section class="container">
+
+    <h3 class="text">TODO APP</h3>
+
+    <div class="card-body"></div>
+
+    <form method="post" action="/add">
+
+<div class="body">
+
+    <div class="col-10"></div>
+    <input class="inpit-wrapper" style="color: black;" type="text" name="task" placeholder="add a new task" required>
+    <div class="col-2"></div>
+    <button class="btn" type="submit" style="background-color: aquamarine;">create</button>
+
+</div>
+
+    </form>
+
+</section>
+
+
+<style>
+
+    .header{
+        background-image: url(../statics/background.webp);
+        background-position: center;
+        background-size: cover;
+        color: blanchedalmond;
+        padding: 100px 0;
+        margin: 5px;
+        border-radius: 10px;
+    
+    }
+    
+    .input-wrapper{
+        background-color:bisque;
+        height: 60px;
+    
+    }
+    
+</style>
+ 
+ <div class="list-group"></div>
+ <ul class="lists">
+
+    {%for tasks in tasks%}
+    <li class="list-group-item">
+
+        {{tasks}}
+        <a type="button" class="close" href="{{url_for('delete_task',inde=loop.index0)}}"> &times;</a>
+    </li>
+
+    {% endfor %} 
+
+ </ul>
+ </div>
+
+</body>
+</html>
